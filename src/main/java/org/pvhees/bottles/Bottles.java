@@ -2,37 +2,35 @@ package org.pvhees.bottles;
 
 public class Bottles {
 
-    public String verse(int bottles) {
-        Bottle currentBottle = new Bottle(bottles);
-        Bottle remainingBottle = new Bottle(bottles - 1);
-
-        String chorus = capitalizeFirst(currentBottle.count()) + " " + currentBottle.container() + " of beer on the wall, "
-                + currentBottle.count() + " " + currentBottle.container() + " of beer.\n";
-
-        String takedown = "Take " + currentBottle.subjectOfRemoval() + " down and pass it around, "
-                + remainingBottle.count() + " " + remainingBottle.container() + " of beer on the wall.";
-
-        String gotoTheStore = "Go to the store and buy some more, 99 bottles of beer on the wall.";
-
-        return chorus + (bottles > 0 ? takedown : gotoTheStore);
-    }
-
-    private static String capitalizeFirst(String s) {
-        return s.substring(0, 1).toUpperCase() + s.substring(1);
-    }
-
     public String song() {
         return verses(99, 0);
     }
 
-    public String verses(int bottlesStart, int bottlesEnd) {
-        StringBuilder song = new StringBuilder();
-        for (int i = bottlesStart; i >= bottlesEnd; i--) {
-            song.append(verse(i));
-            if (i != bottlesEnd) {
-                song.append("\n\n");
+    public String verses(int starting, int ending) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = starting; i >= ending; i--) {
+            if (i != starting) {
+                sb.append("\n");
             }
+            sb.append(verse(i));
         }
-        return song.toString();
+        return sb.toString();
+    }
+
+    public String verse(int number) {
+        BottleNumber bottle_number = new BottleNumber(number);
+        BottleNumber next_bottle_number = bottle_number.successor();
+
+        return capitalize(bottle_number.quantity()) + " " + bottle_number.container() + " of beer on the wall, " +
+                bottle_number.quantity() + " " + bottle_number.container() + " of beer.\n" +
+                bottle_number.action() + ", "+
+                next_bottle_number.quantity() + " " + next_bottle_number.container() + " of beer on the wall.\n";
+    }
+
+    private static String capitalize(String s) {
+        if (s == null || s.isEmpty()) {
+            return s;
+        }
+        return s.substring(0, 1).toUpperCase() + s.substring(1);
     }
 }

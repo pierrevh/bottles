@@ -11,35 +11,35 @@ public class BottlesTest {
     @Test
     public void the_first_verse() {
         String expected = "99 bottles of beer on the wall, 99 bottles of beer.\n"
-                + "Take one down and pass it around, 98 bottles of beer on the wall.";
+                + "Take one down and pass it around, 98 bottles of beer on the wall.\n";
         assertThat(new Bottles().verse(99), is(expected));
     }
 
     @Test
     public void test_another_verse() {
         String expected = "89 bottles of beer on the wall, 89 bottles of beer.\n"
-                + "Take one down and pass it around, 88 bottles of beer on the wall.";
+                + "Take one down and pass it around, 88 bottles of beer on the wall.\n";
         assertThat(new Bottles().verse(89), is(expected));
     }
 
     @Test
     public void test_verse_2() {
         String expected = "2 bottles of beer on the wall, 2 bottles of beer.\n"
-                + "Take one down and pass it around, 1 bottle of beer on the wall.";
+                + "Take one down and pass it around, 1 bottle of beer on the wall.\n";
         assertThat(new Bottles().verse(2), is(expected));
     }
 
     @Test
     public void test_verse_1() {
         String expected = "1 bottle of beer on the wall, 1 bottle of beer.\n"
-                + "Take it down and pass it around, no more bottles of beer on the wall.";
+                + "Take it down and pass it around, no more bottles of beer on the wall.\n";
         assertThat(new Bottles().verse(1), is(expected));
     }
 
     @Test
     public void test_verse_0() {
         String expected = "No more bottles of beer on the wall, no more bottles of beer.\n"
-                + "Go to the store and buy some more, 99 bottles of beer on the wall.";
+                + "Go to the store and buy some more, 99 bottles of beer on the wall.\n";
         assertThat(new Bottles().verse(0), is(expected));
     }
 
@@ -49,7 +49,7 @@ public class BottlesTest {
                 + "Take one down and pass it around, 98 bottles of beer on the wall.\n"
                 + "\n"
                 + "98 bottles of beer on the wall, 98 bottles of beer.\n"
-                + "Take one down and pass it around, 97 bottles of beer on the wall.";
+                + "Take one down and pass it around, 97 bottles of beer on the wall.\n";
         assertThat(new Bottles().verses(99, 98), is(expected));
     }
 
@@ -62,7 +62,7 @@ public class BottlesTest {
                 + "Take it down and pass it around, no more bottles of beer on the wall.\n"
                 + "\n"
                 + "No more bottles of beer on the wall, no more bottles of beer.\n"
-                + "Go to the store and buy some more, 99 bottles of beer on the wall.";
+                + "Go to the store and buy some more, 99 bottles of beer on the wall.\n";
         assertThat(new Bottles().verses(2, 0), is(expected));
     }
 
@@ -366,8 +366,9 @@ public class BottlesTest {
                 "Take it down and pass it around, no more bottles of beer on the wall.\n" +
                 "\n" +
                 "No more bottles of beer on the wall, no more bottles of beer.\n" +
-                "Go to the store and buy some more, 99 bottles of beer on the wall.";
+                "Go to the store and buy some more, 99 bottles of beer on the wall.\n";
 
         assertThat(new Bottles().song(), is(expected));
     }
+
 }
