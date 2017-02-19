@@ -14,7 +14,7 @@ public class BottleNumber1 extends BottleNumber{
     }
 
     @Override
-    protected String pronoun() {
+    public String pronoun() {
         return "it";
     }
 

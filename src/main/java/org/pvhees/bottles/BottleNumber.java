@@ -20,7 +20,7 @@ public class BottleNumber {
         return "Take " + pronoun() +" down and pass it around";
     }
 
-    protected String pronoun() {
+    public String pronoun() {
         return "one";
     }
 
