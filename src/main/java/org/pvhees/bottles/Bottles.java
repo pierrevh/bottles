@@ -18,13 +18,12 @@ public class Bottles {
     }
 
     public String verse(int number) {
-        BottleNumber bottle_number = new BottleNumber(number);
-        BottleNumber next_bottle_number = bottle_number.successor();
+        BottleNumber bottle_number = BottleNumberFactory.create(number);
 
         return capitalize(bottle_number.toString()) + " of beer on the wall, " +
                 bottle_number + " of beer.\n" +
                 bottle_number.action() + ", " +
-                next_bottle_number + " of beer on the wall.\n";
+                bottle_number.successor() + " of beer on the wall.\n";
     }
 
     private static String capitalize(String s) {
