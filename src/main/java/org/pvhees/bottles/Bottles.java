@@ -21,10 +21,10 @@ public class Bottles {
         BottleNumber bottle_number = new BottleNumber(number);
         BottleNumber next_bottle_number = bottle_number.successor();
 
-        return capitalize(bottle_number.quantity()) + " " + bottle_number.container() + " of beer on the wall, " +
-                bottle_number.quantity() + " " + bottle_number.container() + " of beer.\n" +
-                bottle_number.action() + ", "+
-                next_bottle_number.quantity() + " " + next_bottle_number.container() + " of beer on the wall.\n";
+        return capitalize(bottle_number.toString()) + " of beer on the wall, " +
+                bottle_number + " of beer.\n" +
+                bottle_number.action() + ", " +
+                next_bottle_number + " of beer on the wall.\n";
     }
 
     private static String capitalize(String s) {
